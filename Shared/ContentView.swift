@@ -8,10 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @ObservedObject var pokemonVM = PokemonViewModel()
+    
+    @State var searchText : String = ""
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        NavigationView {
+            
+            PokemonList(pokemons: pokemonVM.pokemons)
+                .navigationTitle("Pokemons")
+            
+                
+        }
+        
     }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {
